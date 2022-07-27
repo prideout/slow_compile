@@ -2,6 +2,7 @@
     canvas { background: red; }
 </style>
 <canvas></canvas>
+<p></p>
 <script src="vshader.js"></script>
 <script src="fshader.js"></script>
 <script>
@@ -30,6 +31,9 @@ const status = gl.getProgramParameter(prog, gl.LINK_STATUS);
 const time = (performance.now() - start).toFixed(2);
 
 console.info(`${time} ms`);
+
+const paragraph = document.getElementsByTagName('p')[0];
+paragraph.innerText = `getProgramParameter took ${time} ms`;
 
 if (gl.getError() === gl.NO_ERROR) {
     gl.clearColor(0,1,0,1);
